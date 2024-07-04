@@ -1,0 +1,12 @@
+html, body{
+    width: 100vw;
+    height: 100vh;
+}
+
+main{
+    padding: 2rem;
+}
+
+#pokemonSprite {
+    display: none;
+}
