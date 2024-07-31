@@ -1,12 +1,64 @@
 html, body{
     width: 100vw;
     height: 100vh;
+    background-image: url(images/bg-ground-green.jpeg);
+    background-size: cover;
 }
 
-main{
+body{
     padding: 2rem;
 }
 
-#pokemonSprite {
-    display: none;
+header, main{
+    max-width: 500px;
+    margin: auto;
 }
+
+header{
+    /*background-color: red;*/
+    height: 100px;
+}
+
+#icons{
+    /*background-color: blueviolet;*/
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+
+
+/*SEARCH BAR*/
+
+.container-search-wrapper{
+  
+}
+
+.input-wrapper{
+    padding: 8px 12px;
+    background-color: #FAFAFA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    border-radius: 30px;
+}
+
+#input-pokemon-name{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+input:focus-visible {
+    outline: none;
+}
+
+/*FIM SEARCH BAR*/
+
+main{
+    margin-top: 2rem;
+}
+
+#titles{
+    background-color: blue;
+}
+
