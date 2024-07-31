@@ -1,8 +1,29 @@
+:root{
+    --light-green: #D4DAD1;
+    --gray: #F5F5F5;
+    --outer-space: #394648;
+}
+
+*{
+   font-family: "Nunito"; 
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/bg-ground-green.jpeg');
+    background-size: cover;
+    opacity: 0.65; /* Ajuste a opacidade conforme necessário */
+    z-index: -1; /* Garante que o pseudo-elemento fique atrás do conteúdo */
+}
+
 html, body{
     width: 100vw;
     height: 100vh;
-    background-image: url(images/bg-ground-green.jpeg);
-    background-size: cover;
 }
 
 body{
@@ -23,9 +44,8 @@ header{
     /*background-color: blueviolet;*/
     display: flex;
     justify-content: space-between;
-    margin: 2rem 0;
+    margin: 4rem 0;
 }
-
 
 /*SEARCH BAR*/
 
@@ -46,19 +66,31 @@ header{
 #input-pokemon-name{
     background-color: transparent;
     border-color: transparent;
+    width: 90%;
 }
 
 input:focus-visible {
     outline: none;
 }
 
+::placeholder {
+    color: var(--outer-space);
+    opacity: 0.75;
+}
+
 /*FIM SEARCH BAR*/
 
 main{
-    margin-top: 2rem;
+    margin-top: 6rem;
 }
 
 #titles{
     background-color: blue;
 }
 
+@media (min-width: 550px) {
+    html, body{
+        background-image: none;
+        background-color: #85c3a9 !Important;
+    }
+}
