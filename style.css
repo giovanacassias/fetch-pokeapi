@@ -22,9 +22,10 @@ body::before {
 }
 
 html,
-body {
-  width: 100vw;
-  height: 100vh;
+body,
+main {
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -108,7 +109,7 @@ main {
 /*POKEMON TYPE*/
 
 #pokemon-type {
-  width: 20rem;
+  width: 16rem;
   height: 3rem;
   display: flex;
   align-items: center;
@@ -132,10 +133,41 @@ main {
   margin: 0;
 }
 
-@media (min-width: 550px) {
-  html,
-  body {
-    background-image: none;
-    background-color: #85c3a9 !important;
-  }
+/*SPRINTS*/
+
+#container-sprit{
+    height: 13.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+#container-sprit > img {
+    /*background-color: blue;*/
+    height: 350px;
+    margin-top: 10rem;
+}
+
+#container-pokeball{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+    
+}
+
+#img-pokeball{
+    height: 200px;
+    z-index: -1;
+    opacity: .3;
+}
+
+/*
+@media (min-width: 550px) {
+    html,
+    body {
+      background-image: none;
+      background-color: #85c3a9 !important;
+    }
+  }
+*/
