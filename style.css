@@ -29,7 +29,7 @@ main {
 }
 
 body {
-  padding: 2rem;
+  padding: .5rem 2rem;
 }
 
 header,
@@ -135,43 +135,41 @@ main {
 
 /*SPRINTS*/
 
-#container-sprit{
-    height: 13.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#container-sprit {
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
 }
 
 #container-sprit > img {
-    /*background-color: blue;*/
-    height: 350px;
-    margin-top: 10rem;
-    z-index: 2;
+  /*background-color: blue;*/
+  height: 250px;
+  margin-top: 10rem;
+  z-index: 2;
 }
 
-#container-pokeball{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: -1;
-    
+#container-pokeball {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
 }
 
-#img-pokeball{
-    height: 200px;
-    z-index: 1;
-    opacity: .3;
+#img-pokeball {
+  height: 200px;
+  z-index: 1;
+  opacity: 0.3;
 }
-
 
 @media (min-width: 550px) {
-    html,
-    body {
-      background-color: #85c3a9 !important;
-    }
-
-    body::before{
-      opacity: 0;
-    }
-    
+  html,
+  body {
+    background-color: #85c3a9 !important;
   }
+
+  body::before {
+    opacity: 0;
+  }
+}
