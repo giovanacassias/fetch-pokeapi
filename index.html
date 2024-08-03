@@ -74,13 +74,44 @@
         <img src="images/bulbasaur-front-default.png" alt="" />
       </div>
 
+      
       <div id="container-pokeball">
         <img id="img-pokeball" src="images/pokeball.png" alt="">
       </div>
-
-      <div id="about">
-        <p>sobre o pokemón</p>
-      </div>
     </main>
+
+    <section>
+      <div id="about">
+        <h4 id="about-pokemon">About this Pokemón</h4>
+
+        <div id="characteristics">
+          <div id="attack">
+            <p class="traces">Attack</p>
+            <p id="attack-score" class="score">60</p>
+            <input type="range" class="slider">
+          </div>
+
+          <div id="defense">
+            <p class="traces">Defense</p>
+            <p id="defense-score" class="score">60</p>
+            <input type="range" class="slider">
+          </div>
+
+          <div id="special-attack">
+            <p class="traces">Special Attack</p>
+            <p id="special-attack-score" class="score">60</p>
+            <input type="range" class="slider">
+          </div>
+
+          <div id="special-defense">
+            <p class="traces">Special Defense</p>
+            <p id="special-defense-score" class="score">60</p>
+            <input type="range" class="slider" min="0" max="100" value="20">
+          </div>
+
+
+        </div>
+      </div>
+    </section>
   </body>
 </html>

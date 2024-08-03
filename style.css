@@ -14,7 +14,7 @@ body::before {
   top: 0;
   left: 0;
   width: 100%;
-  height: 1000px;
+  height: 800px;
   background-image: url("images/bg-ground-green.jpeg");
   background-size: cover;
   opacity: 0.65; /* Ajuste a opacidade conforme necessário */
@@ -22,20 +22,16 @@ body::before {
 }
 
 html,
-body,
-main {
+body {
   width: 100%;
   height: 100%;
-}
-
-body {
-  padding: .5rem 2rem;
 }
 
 header,
 main {
   max-width: 500px;
   margin: auto;
+  padding: 0.5rem 2rem;
 }
 
 header {
@@ -82,6 +78,7 @@ input:focus-visible {
 
 main {
   margin-top: 4rem;
+  height: 330px;
 }
 
 /*POKEMON NAME AND INDEX NUMBER*/
@@ -90,6 +87,7 @@ main {
   display: flex;
   align-items: first baseline;
   justify-content: space-between;
+  margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
@@ -101,7 +99,7 @@ main {
 }
 
 #pokemon-name {
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: bold;
   color: var(--gray);
 }
@@ -110,7 +108,7 @@ main {
 
 #pokemon-type {
   width: 16rem;
-  height: 3rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -136,7 +134,7 @@ main {
 /*SPRINTS*/
 
 #container-sprit {
-  height: 2rem;
+  height: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,7 +143,7 @@ main {
 
 #container-sprit > img {
   /*background-color: blue;*/
-  height: 250px;
+  height: 220px;
   margin-top: 10rem;
   z-index: 2;
 }
@@ -158,12 +156,93 @@ main {
 }
 
 #img-pokeball {
-  height: 200px;
-  z-index: 1;
+  height: 150px;
+  z-index: -1;
   opacity: 0.3;
 }
 
-@media (min-width: 550px) {
+/*ABOUT THE POKEMÓN */
+
+#about {
+  height: 320px;
+  background-color: var(--gray);
+  border-radius: 30px 30px 0px 0px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#about-pokemon {
+  color: var(--outer-space);
+  padding: 2rem 3rem;
+}
+
+#characteristics > div {
+  display: flex;
+  background-color: transparent;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.traces {
+  width: 21%;
+  background-color: transparent;
+  font-weight: 500;
+}
+
+.score {
+  font-weight: bold;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 150px;
+  height: 8px;
+  background: #764242;
+  border-radius: 5px;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity .2s;
+  position: relative;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0; /* Oculta o thumb */
+  height: 0; /* Oculta o thumb */
+  background: transparent; /* Faz o thumb invisível */
+}
+
+.slider::-moz-range-thumb {
+  width: 0; /* Oculta o thumb */
+  height: 0; /* Oculta o thumb */
+  background: transparent; /* Faz o thumb invisível */
+}
+
+/* Estilo do track do slider */
+
+.slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  background: var(--outer-space); /* Cor da barra do slider */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.slider::-moz-range-track {
+  width: 100%;
+  height: 15px;
+  background: #4CAF50; /* Cor da barra do slider */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+/*MEDIA QUERY */
+
+@media (min-width: 600px) {
   html,
   body {
     background-color: #85c3a9 !important;
@@ -171,5 +250,10 @@ main {
 
   body::before {
     opacity: 0;
+  }
+
+  #about {
+    max-width: 550px;
+    margin: auto;
   }
 }
