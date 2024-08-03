@@ -14,7 +14,7 @@ body::before {
   top: 0;
   left: 0;
   width: 100%;
-  height: 800px;
+  height: 650px;
   background-image: url("images/bg-ground-green.jpeg");
   background-size: cover;
   opacity: 0.65; /* Ajuste a opacidade conforme necessário */
@@ -164,17 +164,17 @@ main {
 /*ABOUT THE POKEMÓN */
 
 #about {
-  height: 320px;
+  height: 278px;
   background-color: var(--gray);
   border-radius: 30px 30px 0px 0px;
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 10px;
 }
 
 #about-pokemon {
   color: var(--outer-space);
-  padding: 2rem 3rem;
+  padding: 2rem 2rem;
 }
 
 #characteristics > div {
@@ -185,7 +185,7 @@ main {
 }
 
 .traces {
-  width: 21%;
+  width: 28%;
   background-color: transparent;
   font-weight: 500;
 }
@@ -223,7 +223,7 @@ main {
 /* Estilo do track do slider */
 
 .slider::-webkit-slider-runnable-track {
-  width: 100%;
+  width: 100px;
   height: 8px;
   background: var(--outer-space); /* Cor da barra do slider */
   border-radius: 5px;
@@ -253,7 +253,7 @@ main {
   }
 
   #about {
-    max-width: 550px;
+    max-width: 450px;
     margin: auto;
   }
 }
