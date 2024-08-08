@@ -2,6 +2,7 @@
   --light-green: #d4dad1;
   --gray: #f5f5f5;
   --outer-space: #394648;
+  --white: #fafafa;
 }
 
 * {
@@ -33,6 +34,10 @@ body {
   flex-direction: column;
 }
 
+::-webkit-scrollbar{
+  display: none;
+}
+
 header,
 main {
   margin: auto;
@@ -56,9 +61,14 @@ header {
 
 /*SEARCH BAR*/
 
+input:autofill {
+  box-shadow: inset 0 0 0 100px var(--white);
+  border: var(--white);
+}
+
 .input-wrapper {
   padding: 8px 12px;
-  background-color: #fafafa;
+  background-color: var(--white);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -73,10 +83,6 @@ header {
   cursor: pointer;
 }
 
-input:-webkit-autofill-selected{
-  background-color: var(--gray) !important;
-}
-
 input:focus-visible {
   outline: none;
 }
@@ -89,6 +95,8 @@ input:focus-visible {
 #lupa{
   cursor: pointer;
 }
+
+
 
 /*FIM SEARCH BAR*/
 
@@ -106,6 +114,10 @@ main {
   justify-content: space-between;
   margin-top: 2rem;
   margin-bottom: 1rem;
+}
+
+h1::first-letter {
+  text-transform: capitalize;
 }
 
 #index-num {
@@ -146,6 +158,7 @@ main {
   font-size: 1.1rem;
   font-weight: bold;
   margin: 0;
+  text-transform: capitalize;
 }
 
 /*SPRITS*/
