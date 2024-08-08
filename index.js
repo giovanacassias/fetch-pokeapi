@@ -14,7 +14,7 @@
 
         try{
 
-            const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
+            const pokemonName = document.getElementById('input-pokemon-name').value.toLowerCase();
 
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
 

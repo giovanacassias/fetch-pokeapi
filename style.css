@@ -73,6 +73,10 @@ header {
   cursor: pointer;
 }
 
+input:-webkit-autofill-selected{
+  background-color: var(--gray) !important;
+}
+
 input:focus-visible {
   outline: none;
 }
@@ -80,6 +84,10 @@ input:focus-visible {
 ::placeholder {
   color: var(--outer-space);
   opacity: 0.75;
+}
+
+#lupa{
+  cursor: pointer;
 }
 
 /*FIM SEARCH BAR*/
@@ -152,7 +160,7 @@ main {
 
 #container-sprit > img {
   /*background-color: blue;*/
-  height: 220px;
+  height: 160px;
   margin-top: 10rem;
   z-index: 2;
 }
