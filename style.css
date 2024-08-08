@@ -218,13 +218,15 @@ section{
 }
 
 .traces {
-  width: 33%;
+  width: 20%;
   background-color: transparent;
   font-weight: 500;
 }
 
 .score {
+  width: 10%;
   font-weight: bold;
+  padding: 0px 10px;
 }
 
 .slider {
