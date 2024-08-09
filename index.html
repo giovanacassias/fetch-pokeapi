@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PokeAPI</title>
 
-    <link rel="stylesheet" href="reset.css"/>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -49,7 +49,12 @@
               id="input-pokemon-name"
               placeholder="Choose a Pokemón"
             />
-            <img id="lupa" src="icons/search-icon.png" alt="Sprite do Pokemón" onclick="fetchData()">
+            <img
+              id="lupa"
+              src="icons/search-icon.png"
+              alt="Sprite do Pokemón"
+              onclick="fetchData()"
+            />
           </div>
         </div>
       </div>
@@ -62,7 +67,7 @@
       </div>
 
       <div id="pokemon-type">
-        <div class="type" >
+        <div class="type">
           <p id="type-1">Grass</p>
         </div>
         <div class="type" id="type-container-2">
@@ -71,45 +76,46 @@
       </div>
 
       <div id="container-sprit">
-        <img id="pokemonSprite" src="images/bulbasaur-front-default.png" alt="" />
+        <img
+          id="pokemonSprite"
+          src="images/bulbasaur-front-default.png"
+          alt=""
+        />
       </div>
 
-      
       <div id="container-pokeball">
-        <img id="img-pokeball" src="images/pokeball.png" alt="">
+        <img id="img-pokeball" src="images/pokeball.png" alt="" />
       </div>
     </main>
 
     <section>
       <div id="about">
-        <h4 id="about-pokemon">About this Pokemón</h4>
+        <h4 id="about-pokemon">Base Stats of this Pokemón</h4>
 
         <div id="characteristics">
-          <div id="attack">
+          <div id="attack" class="characteristics-line">
             <p class="traces">Attack</p>
-            <p id="attack-score" class="score">60</p>
-            <input type="range" class="slider">
+            <p class="score" id="attack-score">49</p>
+            <p class="slider-container"><span class="slider-bar" id="slider-attack"></span></p>
           </div>
 
-          <div id="defense">
+          <div id="defense" class="characteristics-line">
             <p class="traces">Defense</p>
-            <p id="defense-score" class="score">60</p>
-            <input type="range" class="slider">
+            <p id="defense-score" class="score">49</p>
+            <p class="slider-container"><span class="slider-bar" id="slider-defense"></span></p>
           </div>
 
-          <div id="special-attack">
+          <div id="special-attack" class="characteristics-line">
             <p class="traces">Sp. Attack</p>
-            <p id="special-attack-score" class="score">60</p>
-            <input type="range" class="slider">
+            <p id="special-attack-score" class="score">65</p>
+            <p class="slider-container"><span class="slider-bar" id="slider-sp-attack"></span></p>
           </div>
 
-          <div id="special-defense">
+          <div id="special-defense" class="characteristics-line">
             <p class="traces">Sp. Defense</p>
-            <p id="special-defense-score" class="score">60</p>
-            <input type="range" class="slider" min="0" max="100" value="20">
+            <p id="special-defense-score" class="score">65</p>
+            <p class="slider-container"><span class="slider-bar" id="slider-sp-defense"></span></p>
           </div>
-
-
         </div>
       </div>
     </section>

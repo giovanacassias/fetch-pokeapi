@@ -96,8 +96,6 @@ input:focus-visible {
   cursor: pointer;
 }
 
-
-
 /*FIM SEARCH BAR*/
 
 main {
@@ -210,69 +208,76 @@ section{
   padding: 2rem 2rem;
 }
 
-#characteristics > div {
+
+.characteristics-line{
+  /*background-color: red;*/
+  width: 100%;
   display: flex;
-  background-color: transparent;
   justify-content: space-around;
-  align-items: baseline;
 }
 
 .traces {
-  width: 20%;
-  background-color: transparent;
+  /*background-color: blue;*/
+  width: 25%;
   font-weight: 500;
 }
 
 .score {
   width: 10%;
+  /*background-color: green;*/
   font-weight: bold;
   padding: 0px 10px;
 }
 
-.slider {
-  -webkit-appearance: none;
-  width: 150px;
-  height: 8px;
-  background: #764242;
-  border-radius: 5px;
-  outline: none;
-  opacity: 0.7;
-  transition: opacity .2s;
-  position: relative;
+.slider-container{
+  /*background-color: pink;*/
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 0; /* Oculta o thumb */
-  height: 0; /* Oculta o thumb */
-  background: transparent; /* Faz o thumb invisível */
+.slider-bar{
+  border-radius: 20px;
+  background-color: var(--outer-space);
+  height: 30%;
+  animation: progress 0.4s ease forwards;
+  opacity: 0;
 }
 
-.slider::-moz-range-thumb {
-  width: 0; /* Oculta o thumb */
-  height: 0; /* Oculta o thumb */
-  background: transparent; /* Faz o thumb invisível */
+.slider-bar.animate {
+  animation: progress 0.4s ease forwards;
 }
 
-/* Estilo do track do slider */
 
-.slider::-webkit-slider-runnable-track {
-  width: 100px;
-  height: 8px;
-  background: var(--outer-space); /* Cor da barra do slider */
-  border-radius: 5px;
-  cursor: pointer;
+#slider-attack{
+  width: 49px;
+  animation: progress 0.4s ease forwards;
+  opacity: 0;
 }
 
-.slider::-moz-range-track {
-  width: 100%;
-  height: 15px;
-  background: #4CAF50; /* Cor da barra do slider */
-  border-radius: 5px;
-  cursor: pointer;
+#slider-defense{
+  width: 49px;
 }
 
+#slider-sp-attack{
+  width: 65px;
+}
+
+#slider-sp-defense{
+  width: 65px;
+}
+
+@keyframes progress{
+  0%{
+    width: 0;
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
 
 
 /*MEDIA QUERY */
