@@ -126,3 +126,5 @@ async function fetchData() {
     console.log(error);
   }
 }
+
+document.addEventListener('DOMContentLoaded', rolarParaFim());
