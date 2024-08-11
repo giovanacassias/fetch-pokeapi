@@ -9,17 +9,21 @@
     .then(data => console.log(data.id))
     .catch(error => console.error(error)); */
 
+function rolarParaFim() {
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth", // Adiciona um efeito de rolagem suave
+  });
+}
 
 function restartAnimation() {
-
   const barraScore = document.getElementsByClassName("slider-bar");
-  Array.from(barraScore).forEach(barra => {
+  Array.from(barraScore).forEach((barra) => {
     barra.classList.remove("slider-bar");
     void barra.offsetWidth;
     barra.classList.add("slider-bar");
   });
-}    
-
+}
 
 async function fetchData() {
   try {
@@ -67,8 +71,10 @@ async function fetchData() {
       document.getElementById("type-container-2").style.display = "none";
     }
 
+    rolarParaFim()
+
     //RESTARTING ANIMATION
-    restartAnimation()
+    restartAnimation();
 
     //ATTACK
 
@@ -96,7 +102,6 @@ async function fetchData() {
     const scoreSpAttack = document.getElementById("special-attack-score");
     scoreSpAttack.innerHTML = pokemonSpecialAttack;
 
-  
     const sliderSpAttack = document.getElementById("slider-sp-attack");
     pokemonSpecialAttack = parseInt(pokemonSpecialAttack);
     let pokemonSpecialAttackBar = pokemonSpecialAttack / 1.5;
@@ -110,7 +115,10 @@ async function fetchData() {
     const sliderSpDefense = document.getElementById("slider-sp-defense");
     pokemonSpecialDefense = parseInt(pokemonSpecialDefense);
     let pokemonSpecialDefenseBar = pokemonSpecialDefense / 1.5;
-    sliderSpDefense.setAttribute("style", `width:${pokemonSpecialDefenseBar}px`);
+    sliderSpDefense.setAttribute(
+      "style",
+      `width:${pokemonSpecialDefenseBar}px`
+    );
 
     //CLEANING THE SEARCH BAR
     document.getElementById("input-pokemon-name").value = "";
