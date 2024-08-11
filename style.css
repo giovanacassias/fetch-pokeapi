@@ -209,6 +209,9 @@ section{
   padding: 2rem 2rem;
 }
 
+#characteristics{
+  margin-left: 1rem;
+}
 
 .characteristics-line{
   /*background-color: red;*/
