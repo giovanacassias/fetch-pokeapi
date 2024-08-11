@@ -72,36 +72,45 @@ async function fetchData() {
 
     //ATTACK
 
-    const pokemonAttack = data.stats[1].base_stat;
+    let pokemonAttack = data.stats[1].base_stat;
     const scoreAttack = document.getElementById("attack-score");
     scoreAttack.innerHTML = pokemonAttack;
 
     const sliderAttack = document.getElementById("slider-attack");
-    sliderAttack.setAttribute("style", `width:${pokemonAttack}px`);
+    pokemonAttack = parseInt(pokemonAttack);
+    let pokemonAttackBar = pokemonAttack / 1.5;
+    sliderAttack.setAttribute("style", `width:${pokemonAttackBar}px`);
 
     //DEFENSE
-    const pokemonDefense = data.stats[2].base_stat;
+    let pokemonDefense = data.stats[2].base_stat;
     const scoreDefense = document.getElementById("defense-score");
     scoreDefense.innerHTML = pokemonDefense;
 
     const sliderDefense = document.getElementById("slider-defense");
-    sliderDefense.setAttribute("style", `width:${pokemonDefense}px`);
+    pokemonDefense = parseInt(pokemonDefense);
+    let pokemonDefenseBar = pokemonDefense / 1.5;
+    sliderDefense.setAttribute("style", `width:${pokemonDefenseBar}px`);
 
     //SP. ATTACK
-    const pokemonSpecialAttack = data.stats[3].base_stat;
+    let pokemonSpecialAttack = data.stats[3].base_stat;
     const scoreSpAttack = document.getElementById("special-attack-score");
     scoreSpAttack.innerHTML = pokemonSpecialAttack;
 
+  
     const sliderSpAttack = document.getElementById("slider-sp-attack");
-    sliderSpAttack.setAttribute("style", `width:${pokemonSpecialAttack}px`);
+    pokemonSpecialAttack = parseInt(pokemonSpecialAttack);
+    let pokemonSpecialAttackBar = pokemonSpecialAttack / 1.5;
+    sliderSpAttack.setAttribute("style", `width:${pokemonSpecialAttackBar}px`);
 
     //SP. DEFENSE
-    const pokemonSpecialDefense = data.stats[4].base_stat;
-    const scoreSpDefense = document.getElementById("special-defense-score");
+    let pokemonSpecialDefense = data.stats[4].base_stat;
+    let scoreSpDefense = document.getElementById("special-defense-score");
     scoreSpDefense.innerHTML = pokemonSpecialDefense;
 
     const sliderSpDefense = document.getElementById("slider-sp-defense");
-    sliderSpDefense.setAttribute("style", `width:${pokemonSpecialDefense}px`);
+    pokemonSpecialDefense = parseInt(pokemonSpecialDefense);
+    let pokemonSpecialDefenseBar = pokemonSpecialDefense / 1.5;
+    sliderSpDefense.setAttribute("style", `width:${pokemonSpecialDefenseBar}px`);
 
     //CLEANING THE SEARCH BAR
     document.getElementById("input-pokemon-name").value = "";
