@@ -9,6 +9,18 @@
     .then(data => console.log(data.id))
     .catch(error => console.error(error)); */
 
+
+function restartAnimation() {
+
+  const barraScore = document.getElementsByClassName("slider-bar");
+  Array.from(barraScore).forEach(barra => {
+    barra.classList.remove("slider-bar");
+    void barra.offsetWidth;
+    barra.classList.add("slider-bar");
+  });
+}    
+
+
 async function fetchData() {
   try {
     const pokemonInput = document
@@ -55,6 +67,9 @@ async function fetchData() {
       document.getElementById("type-container-2").style.display = "none";
     }
 
+    //RESTARTING ANIMATION
+    restartAnimation()
+
     //ATTACK
 
     const pokemonAttack = data.stats[1].base_stat;
@@ -63,7 +78,6 @@ async function fetchData() {
 
     const sliderAttack = document.getElementById("slider-attack");
     sliderAttack.setAttribute("style", `width:${pokemonAttack}px`);
-
 
     //DEFENSE
     const pokemonDefense = data.stats[2].base_stat;

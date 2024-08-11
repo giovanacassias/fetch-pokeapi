@@ -249,10 +249,8 @@ section{
   animation: progress 0.4s ease forwards;
 }
 
-
 #slider-attack{
   width: 49px;
-  animation: progress 0.4s ease forwards;
   opacity: 0;
 }
 
