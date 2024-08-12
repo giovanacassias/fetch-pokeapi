@@ -57,8 +57,12 @@ header {
   display: flex;
   justify-content: space-between;
   margin: 2.5rem 0px;
+
 }
 
+#icon-heart, #icon-left-arrow{
+  width: 2.5rem;
+}
 /*SEARCH BAR*/
 
 input:autofill {

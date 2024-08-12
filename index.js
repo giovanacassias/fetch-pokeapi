@@ -16,6 +16,19 @@ function rolarParaFim() {
   });
 }
 
+ function addFavs(){
+    let heartIcon = document.getElementById("icon-heart");
+    let currentState = heartIcon.getAttribute("data-state");
+
+    if(currentState == "light"){
+      heartIcon.src = "icons/heart-dark.png";
+      heartIcon.setAttribute("data-state", "dark");
+    }else{
+      heartIcon.src = "icons/heart-light.png";
+      heartIcon.setAttribute("data-state", "light");
+    }
+};
+
 function restartAnimation() {
   const barraScore = document.getElementsByClassName("slider-bar");
   Array.from(barraScore).forEach((barra) => {
