@@ -1,14 +1,3 @@
-/* fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
-    .then(response => {
-        if(!response.ok){
-            throw new Error("Could not fetch resource");
-        }
-        return response.json();
-    } 
-    )
-    .then(data => console.log(data.id))
-    .catch(error => console.error(error)); */
-
 function rolarParaFim() {
   window.scrollTo({
     top: document.body.scrollHeight,
@@ -16,26 +5,28 @@ function rolarParaFim() {
   });
 }
 
- function addFavs(){
-    let heartIcon = document.getElementById("icon-heart");
-    let currentState = heartIcon.getAttribute("data-state");
-
-    if(currentState == "light"){
-      heartIcon.src = "icons/heart-dark.png";
-      heartIcon.setAttribute("data-state", "dark");
-    }else{
-      heartIcon.src = "icons/heart-light.png";
-      heartIcon.setAttribute("data-state", "light");
-    }
-};
-
 function restartAnimation() {
   const barraScore = document.getElementsByClassName("slider-bar");
   Array.from(barraScore).forEach((barra) => {
     barra.classList.remove("slider-bar");
-    void barra.offsetWidth;
+    void barra.offsetWidth; //força a reinicialização da animação
     barra.classList.add("slider-bar");
   });
+}
+
+function addFavsLocalStorage() {
+  let heartIcon = document.getElementById("icon-heart");
+  let currentState = heartIcon.getAttribute("data-state");
+
+  if (currentState == "light") {
+    //adicionar aos favoritos
+    heartIcon.src = "icons/heart-dark.png";
+    heartIcon.setAttribute("data-state", "dark");
+  } else {
+    //remover dos favoritos
+    heartIcon.src = "icons/heart-light.png";
+    heartIcon.setAttribute("data-state", "light");
+  }
 }
 
 async function fetchData() {
@@ -53,6 +44,8 @@ async function fetchData() {
     }
 
     const data = await response.json();
+
+    //CHECANDO SE POKEMON ESTÁ NO LOCAL STORAGE
 
     //SPRITE
     const pokemonSprite = data.sprites.front_default;
@@ -84,13 +77,12 @@ async function fetchData() {
       document.getElementById("type-container-2").style.display = "none";
     }
 
-    rolarParaFim()
+    rolarParaFim();
 
     //RESTARTING ANIMATION
     restartAnimation();
 
     //ATTACK
-
     let pokemonAttack = data.stats[1].base_stat;
     const scoreAttack = document.getElementById("attack-score");
     scoreAttack.innerHTML = pokemonAttack;
@@ -140,4 +132,4 @@ async function fetchData() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', rolarParaFim());
+document.addEventListener("DOMContentLoaded", rolarParaFim());
