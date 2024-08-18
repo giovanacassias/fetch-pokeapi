@@ -1,135 +1,71 @@
-function rolarParaFim() {
-  window.scrollTo({
-    top: document.body.scrollHeight,
-    behavior: "smooth", // Adiciona um efeito de rolagem suave
-  });
-}
+import { Pokemon } from "./model/pokemon.js";
+import { PokemonService } from "./service/pokemon.service.js";
 
-function restartAnimation() {
-  const barraScore = document.getElementsByClassName("slider-bar");
-  Array.from(barraScore).forEach((barra) => {
-    barra.classList.remove("slider-bar");
-    void barra.offsetWidth; //força a reinicialização da animação
-    barra.classList.add("slider-bar");
-  });
-}
+let pokemonService = new PokemonService();
 
-function addFavsLocalStorage() {
-  let heartIcon = document.getElementById("icon-heart");
-  let currentState = heartIcon.getAttribute("data-state");
-
-  if (currentState == "light") {
-    //adicionar aos favoritos
-    heartIcon.src = "icons/heart-dark.png";
-    heartIcon.setAttribute("data-state", "dark");
-  } else {
-    //remover dos favoritos
-    heartIcon.src = "icons/heart-light.png";
-    heartIcon.setAttribute("data-state", "light");
-  }
-}
-
-async function fetchData() {
+async function submitHandler() {
   try {
-    const pokemonInput = document
-      .getElementById("input-pokemon-name")
-      .value.toLowerCase();
+    const data = await pokemonService.fetchData();
 
-    const response = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${pokemonInput}`
-    );
-
-    if (!response.ok) {
-      throw new Error("Could not fetch resource!");
-    }
-
-    const data = await response.json();
-
-    //CHECANDO SE POKEMON ESTÁ NO LOCAL STORAGE
-
-    //SPRITE
-    const pokemonSprite = data.sprites.front_default;
-    const imgElement = document.getElementById("pokemonSprite");
-    imgElement.src = pokemonSprite;
-    imgElement.style.display = "block";
-
-    //NAME
-    const pokemonName = data.name;
-    const h1 = document.getElementById("pokemon-name");
-    h1.innerHTML = pokemonName;
-
-    //ID
-    const pokemonID = data.id;
-    const h2 = document.getElementById("index-num");
-    h2.innerHTML = `#${pokemonID}`;
-
-    //TYPE 1
-    const pokemonType1 = data.types[0].type.name;
-    const type1 = document.getElementById("type-1");
-    type1.innerHTML = pokemonType1;
+    //Armazenando dentro de variáveis os dados do objeto retornado da função assíncrona
+    let pokemonName = data.name;
+    let pokemonID = data.id;
+    let pokemonSprite = data.sprites.front_default;
+    let pokemonAttack = data.stats[1].base_stat;
+    let pokemonDefense = data.stats[2].base_stat;
+    let pokemonSpecialAttack = data.stats[3].base_stat;
+    let pokemonSpecialDefense = data.stats[4].base_stat;
+    let pokemonType1 = data.types[0].type.name;
+    let pokemonType2 = null;
 
     if (data.types.length > 1) {
-      const pokemonType2 = data.types[1].type.name;
-      const type2 = document.getElementById("type-2");
-      type2.innerHTML = pokemonType2;
-      document.getElementById("type-container-2").style.display = "flex";
-    } else {
-      document.getElementById("type-container-2").style.display = "none";
+      pokemonType2 = data.types[1].type.name;
     }
 
-    rolarParaFim();
+    /*  console.log(pokemonName);
+    console.log(pokemonID);
+    console.log(pokemonSprite);
+    console.log(pokemonType1);
+    console.log(pokemonType2);
+    console.log(pokemonAttack);
+    console.log(pokemonDefense);
+    console.log(pokemonSpecialAttack);
+    console.log(pokemonSpecialDefense); */
 
-    //RESTARTING ANIMATION
-    restartAnimation();
-
-    //ATTACK
-    let pokemonAttack = data.stats[1].base_stat;
-    const scoreAttack = document.getElementById("attack-score");
-    scoreAttack.innerHTML = pokemonAttack;
-
-    const sliderAttack = document.getElementById("slider-attack");
-    pokemonAttack = parseInt(pokemonAttack);
-    let pokemonAttackBar = pokemonAttack / 1.5;
-    sliderAttack.setAttribute("style", `width:${pokemonAttackBar}px`);
-
-    //DEFENSE
-    let pokemonDefense = data.stats[2].base_stat;
-    const scoreDefense = document.getElementById("defense-score");
-    scoreDefense.innerHTML = pokemonDefense;
-
-    const sliderDefense = document.getElementById("slider-defense");
-    pokemonDefense = parseInt(pokemonDefense);
-    let pokemonDefenseBar = pokemonDefense / 1.5;
-    sliderDefense.setAttribute("style", `width:${pokemonDefenseBar}px`);
-
-    //SP. ATTACK
-    let pokemonSpecialAttack = data.stats[3].base_stat;
-    const scoreSpAttack = document.getElementById("special-attack-score");
-    scoreSpAttack.innerHTML = pokemonSpecialAttack;
-
-    const sliderSpAttack = document.getElementById("slider-sp-attack");
-    pokemonSpecialAttack = parseInt(pokemonSpecialAttack);
-    let pokemonSpecialAttackBar = pokemonSpecialAttack / 1.5;
-    sliderSpAttack.setAttribute("style", `width:${pokemonSpecialAttackBar}px`);
-
-    //SP. DEFENSE
-    let pokemonSpecialDefense = data.stats[4].base_stat;
-    let scoreSpDefense = document.getElementById("special-defense-score");
-    scoreSpDefense.innerHTML = pokemonSpecialDefense;
-
-    const sliderSpDefense = document.getElementById("slider-sp-defense");
-    pokemonSpecialDefense = parseInt(pokemonSpecialDefense);
-    let pokemonSpecialDefenseBar = pokemonSpecialDefense / 1.5;
-    sliderSpDefense.setAttribute(
-      "style",
-      `width:${pokemonSpecialDefenseBar}px`
+    //Instanciando a classe Pokemon com os dados obtidos da API
+    let pokemon = new Pokemon(
+      pokemonName,
+      pokemonID,
+      pokemonSprite,
+      pokemonType1,
+      pokemonType2,
+      pokemonAttack,
+      pokemonDefense,
+      pokemonSpecialAttack,
+      pokemonSpecialDefense
     );
 
-    //CLEANING THE SEARCH BAR
-    document.getElementById("input-pokemon-name").value = "";
-  } catch (error) {
-    console.log(error);
-  }
-}
+    /*console.log(pokemon.name);
+    console.log(pokemon.ID);
+    console.log(pokemon.sprite);
+    console.log(pokemon.type1);
+    console.log(pokemon.type2);
+    console.log(pokemon.attack);
+    console.log(pokemon.defense);
+    console.log(pokemon.spAttack);
+    console.log(pokemon.spDefense); */
 
-document.addEventListener("DOMContentLoaded", rolarParaFim());
+    //Atualizando os dados via DOM
+    pokemonService.updatePokemonStats(pokemon);
+
+    //Reiniciando animação, limpando a barra de pesquisa e rolando automaticamente para fim da page via method chaining
+    pokemonService.restartAnimation().cleanSearchBar().rolarParaFim();
+  } catch (error) {
+    console.error("Error fetching data", error);
+  }
+};
+
+addEventListener("DOMContentLoaded", pokemonService.rolarParaFim());
+addEventListener("DOMContentLoaded", () => {
+  document.getElementById("lupa").addEventListener("click", submitHandler); //tirar () para fazer referência à função e não chamar imediatamente o resultado/retorno da função
+});
