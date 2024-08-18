@@ -4,4 +4,4 @@
 
 <p> Take a look on how the project is so far 👇🏻</p>
 
-<a>https://giovanacassias.github.io/fetch-pokeapi/</a>
+<a>https://giovanacassias.github.io/pokedex-project/</a>
