@@ -65,6 +65,7 @@ async function submitHandler() {
   }
 };
 
+
 addEventListener("DOMContentLoaded", pokemonService.rolarParaFim());
 addEventListener("DOMContentLoaded", () => {
   document.getElementById("lupa").addEventListener("click", submitHandler); //tirar () para fazer referência à função e não chamar imediatamente o resultado/retorno da função
