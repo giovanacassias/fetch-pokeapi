@@ -23,7 +23,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <script src="index.js" defer></script>
+
   </head>
   <body>
     <header>
@@ -34,9 +34,10 @@
           alt="Ícone para retornar à home"
         />
         <img
-          id="icon-heart"
-          src="icons/heart.png"
+          id="icon-heart" data-state="light"
+          src="icons/heart-light.png"
           alt="Ícone para adicionar Pokemón aos favoritos"
+          onclick="addFavsLocalStorage()"
         />
       </div>
 
@@ -53,7 +54,6 @@
               id="lupa"
               src="icons/search-icon.png"
               alt="Sprite do Pokemón"
-              onclick="fetchData()"
             />
           </div>
         </div>
@@ -62,7 +62,7 @@
 
     <main>
       <div id="titles">
-        <h1 id="pokemon-name">Bulbasaur</h1>
+        <h1 id="pokemon-name">bulbasaur</h1>
         <h2 id="index-num">#1</h2>
       </div>
 
@@ -120,4 +120,6 @@
       </div>
     </section>
   </body>
+  <script type="module" src="index.js"></script>
+  <script type="module" src="service/pokemon.service.js"></script>
 </html>
