@@ -58,12 +58,8 @@ export class PokemonService {
     switchHeartColor();
   }
 
-  async fetchData() {
+  async fetchData(pokemonInput) {
     try {
-      const pokemonInput = document
-        .getElementById("input-pokemon-name")
-        .value.toLowerCase();
-
       const response = await fetch(
         `https://pokeapi.co/api/v2/pokemon/${pokemonInput}`
       );
@@ -73,6 +69,7 @@ export class PokemonService {
       }
 
       const data = await response.json();
+
       return data;
     } catch (error) {
       console.log(error);
