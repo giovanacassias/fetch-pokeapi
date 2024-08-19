@@ -7,7 +7,7 @@
 ![Figma prototype](images/Frame15.png)
 
 
-<img src="images/Frame15.png" alt="Searching screen" width="200" height="100">
+<img src="images/Frame15.png" alt="Searching screen" width="172" height="373">
 
 
 
