@@ -7,6 +7,9 @@
 ![Figma prototype](images/Frame15.png)
 
 
+<img src="images/Frame15.png" alt="Searching screen" width="200" height="100">
+
+
 
 <h4> Take a look on how the project is so far 👇🏻</h4>
 
