@@ -106,8 +106,7 @@ async function favoriteHandler() {
   } catch (error) {
     console.error("Error fetching data", error);
   }
-};
-
+}
 
 addEventListener("DOMContentLoaded", () => {
   pokemonService.rolarParaFim();
