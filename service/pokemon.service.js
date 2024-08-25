@@ -23,39 +23,92 @@ export class PokemonService {
     return this;
   }
 
-  switchLightColor() {
-    heartIcon.src = "icons/heart-dark.png";
-    heartIcon.setAttribute("data-state", "dark");
+  heartIcon = document.getElementById("icon-heart");
+  currentState = this.heartIcon.getAttribute("data-state");
+
+  switchToDark() {
+    this.heartIcon.src = "icons/heart-dark.png";
+    this.heartIcon.setAttribute("data-state", "dark");
   }
 
-  switchDarkColor() {
-    heartIcon.src = "icons/heart-light.png";
-    heartIcon.setAttribute("data-state", "light");
+  switchToLight() {
+    this.heartIcon.src = "icons/heart-light.png";
+    this.heartIcon.setAttribute("data-state", "light");
   }
 
-  switchHeartColor() {
-    let heartIcon = document.getElementById("icon-heart");
-    let currentState = heartIcon.getAttribute("data-state");
-
-    if (currentState == "light") {
+  /*   switchHeartColor(pokemon) {
+    if (this.currentState === "light") {
       //adicionar aos favoritos
-      switchLightColor();
+      this.switchToDark();
+      this.saveOnLocalStorage(pokemon);
     } else {
       //remover dos favoritos
-      switchDarkColor();
+      this.switchToLight();
+      this.removeFromLocalStorage(pokemon);
+    }
+  } */
+
+  LOCAL_STORAGE_KEY = "myPokemons";
+
+  //getAndParse() pega array do local Storage e converte de string para objeto
+
+  getAndParse() {
+    //Obtendo pokemons do armazenamento local
+    let myPokemons = localStorage.getItem(this.LOCAL_STORAGE_KEY);
+
+    //Convertendo de string para objeto
+    myPokemons = myPokemons ? JSON.parse(myPokemons) : [];
+
+    //Retornando array de objetos
+    return myPokemons;
+  }
+
+  setAndStringify() {
+    let myPokemons = this.getAndParse();
+    localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(myPokemons));
+  }
+
+  saveOnLocalStorage(pokemon) {
+    let myPokemons = localStorage.getItem(this.LOCAL_STORAGE_KEY);
+    myPokemons = myPokemons ? JSON.parse(myPokemons) : [];
+    myPokemons.push(pokemon);
+    localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(myPokemons));
+  }
+
+  removeFromLocalStorage(pokemon) {
+    let myPokemons = this.getAndParse();
+    myPokemons = myPokemons.filter((item) => item.name !== pokemon.name);
+    localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(myPokemons));
+  }
+
+  isInLocalStorage(pokemon) {
+    let myPokemons = localStorage.getItem(this.LOCAL_STORAGE_KEY);
+    myPokemons = myPokemons ? JSON.parse(myPokemons) : [];
+    let result = myPokemons.some(
+      (obj) => obj.id === pokemon.id && obj.name === pokemon.name
+    ); //está funcionando
+
+    if (result === true) {
+      console.log("Pokemón já está nos favoritos!");
+      this.switchToDark();
+      return true;
+    } else {
+      console.log("Pokemón não está nos favoritos!");
+      this.switchToLight();
+      return false;
     }
   }
 
-  addPokemonLocalStorage() {
-    if (localStorage.myPokemonsArray) {
-      myPokemons = JSON.parse(localStorage.getItem("myPokemonsArray"));
+  clicarHeartIcon(pokemon) {
+    if (this.isInLocalStorage(pokemon)) {
+      this.removeFromLocalStorage(pokemon);
+      this.switchToLight();
+      console.log("Pokémon removido dos favoritos");
+    } else {
+      this.saveOnLocalStorage(pokemon);
+      this.switchToDark();
+      console.log("Pokémon adicionado aos favoritos");
     }
-
-    let newPokemon = document.getElementById("pokemon-name").innerHTML;
-    myPokemons.push(newPokemon);
-    localStorage.myPokemonsArray = JSON.stringify(myPokemons);
-
-    switchHeartColor();
   }
 
   async fetchData(pokemonInput) {
@@ -69,7 +122,6 @@ export class PokemonService {
       }
 
       const data = await response.json();
-
       return data;
     } catch (error) {
       console.log(error);
@@ -139,7 +191,7 @@ export class PokemonService {
       `width:${pokemonSpecialDefenseBar}px`
     );
   }
-
+  
   cleanSearchBar() {
     document.getElementById("input-pokemon-name").value = "";
     return this;
