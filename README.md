@@ -3,6 +3,7 @@
 <h4>This is a project to practice and study DOM manipulation, asynchronous functions, CSS, JavaScript, and important programming fundaments. Currently, I'm working only with the mobile version. The goal of this Pokédex is to search for pokémons, see their main base stats and add them into local storage (favorites). To do so, the app consumes data from PokeAPI.</h4>
 
 <img src="images/Frame15.png" alt="Searching screen" width="215" height="466">
+<img src="images/pokédex-screen" alt="Searching screen" width="215" height="466">
 
 <h4> Take a look on how the project is so far 👇🏻</h4>
 
