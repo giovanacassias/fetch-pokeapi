@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Nunito";
+}
+
+html{
+    font-size: 16px;
+    color: var(--outer-space);
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: cadetblue;
+}
+
+#return-logo{
+    height: 2rem;
+    width: 2rem;
+}
+
+#card-container{
+    background-color: aquamarine;
+    height: 118px;
+    width: 187px;
+    border-radius: 20px;
+    display: flex;
+}
+
+#pokemon-attributes{
+    background-color: brown;
+    height: 100%;
+    width: 60%;
+    border-radius: 20px 0px 0px 20px;
+}
+
+#pokemon-img{
+    background-color: blueviolet;
+    height: 100%;
+    width: 40%;
+    border-radius: 0px 20px 20px 0px;
+}
+
