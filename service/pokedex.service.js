@@ -11,35 +11,71 @@ export class PokedexService {
     return myPokemons;
   }
 
+  changeBackgroundColor(favorite){
+    switch(favorite.type1){
+      case 'ice': return "#96D9D6";
+      case 'fairy': return "#EFAFC0";
+      case 'fire': return "#E76F51";
+      case 'water': return "#59A5D8";
+      case 'electric': return "#ffc243";
+      case 'grass': return "#9cc5a1";
+      case 'fighting': return "#C22E28";
+      case 'poison': return "#9739c8";
+      case 'ground': return "#E2BF65";
+      case 'flying': return "#A98FF3";
+      case 'psychic': return "#BA4470";
+      case 'bug': return "#718355";
+      case 'rock': return "#ab947e";
+      case 'ghost': return "#735797";
+      case 'dragon': return "#1e6091";
+      case 'dark': return "#564E58";
+      case 'steel': return "#B7B7CE";
+      case 'normal': return "#e3d0c1";
+    };
+  }
+
   generateCard() {
     const favorites = this.getPokemonsLocalStorage();
     console.log(favorites);
-
-    favorites.map((favorite) => {
+  
+    favorites.forEach((favorite) => {
       let card = document.createElement("div");
       card.classList.add("card-container");
       card.innerHTML = `
-          <div id="pokemon-attributes">
-            <h2 id="pokemon-name">${favorite.name}</h2>
-            <div id="pokemon-type">
+          <div class="pokemon-attributes">
+            <h2 class="pokemon-name">${favorite.name}</h2>
+            <div class="pokemon-type">
               <div class="type">
-                <p id="type-1">${favorite.type1}</p>
-              </div>
-              <div class="type" class="type-container-2">
-                <p id="type-2">${favorite.type2}</p>
+                <p class="type-1">${favorite.type1}</p>
               </div>
             </div>
           </div>
-          <div id="pokemon-img-container">
-            <img id="pokemon-img" src="${favorite.sprite}" alt="" />
+          <div class="pokemon-img-container">
+            <img class="pokemon-img" src="${favorite.sprite}" alt="" />
           </div>
       `;
+  
+      if (favorite.type2 != null) {
+        let type2Part = document.createElement("div");
+        type2Part.classList.add("type");
+        type2Part.innerHTML = `
+        <p class="type-2">${favorite.type2}</p>
+        `;
+  
+        // Adiciona o novo tipo à parte correta do card
+        const pokemonType = card.querySelector(".pokemon-type");
+        pokemonType.appendChild(type2Part);
+      }
+
+      //MUDAR BACKGROUND COLOR DE ACORDO COM TIPO DO POKÉMON
+      let typeColor = this.changeBackgroundColor(favorite);
+      card.style.backgroundColor = typeColor;
 
       const listaPokedex = document.querySelector(".lista-pokedex");
       listaPokedex.appendChild(card);
-
     });
-
+  
     return this;
   }
+  
 }
