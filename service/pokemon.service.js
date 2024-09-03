@@ -191,7 +191,7 @@ export class PokemonService {
       `width:${pokemonSpecialDefenseBar}px`
     );
   }
-  
+
   cleanSearchBar() {
     document.getElementById("input-pokemon-name").value = "";
     return this;
