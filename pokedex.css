@@ -82,14 +82,14 @@ header {
 
 /*CARDS*/
 
-#card-container {
+.card-container {
   background-color: var(--grass);
   height: 115px;
   width: 45%; /*175px*/
   border-radius: 20px;
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.235);
 }
 
@@ -124,7 +124,7 @@ h2, p {
 }
 
 .type > p {
-  font-size: 0.5rem;
+  font-size: 0.6rem;
 }
 
 .type {
@@ -137,6 +137,10 @@ h2, p {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.type-container-2-hidden{
+  display: none;
 }
 
 #pokemon-img-container {
@@ -172,4 +176,11 @@ h2, p {
     width: 30%;
   }
 
+  #type-1, #type-2{
+    font-size: .75rem;
+  }
+
+  #pokemon-name{
+    font-size: 1.5rem;
+  }
 }
